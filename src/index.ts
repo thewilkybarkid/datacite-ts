@@ -39,6 +39,10 @@ export interface Work {
   }>
   readonly descriptions: ReadonlyArray<{ description: string; descriptionType: string }>
   readonly doi: Doi
+  readonly types: {
+    resourceType?: string
+    resourceTypeGeneral?: string
+  }
   readonly titles: ReadonlyNonEmptyArray<{ title: string }>
 }
 
@@ -178,6 +182,10 @@ export const WorkC: Codec<string, string, Work> = pipe(
                 title: C.string,
               }),
             ),
+            types: C.partial({
+              resourceType: C.string,
+              resourceTypeGeneral: C.string,
+            }),
           }),
         }),
       ),

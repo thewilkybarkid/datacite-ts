@@ -28,6 +28,8 @@ expectTypeOf(work.dates).toEqualTypeOf<
 >()
 expectTypeOf(work.doi).toEqualTypeOf<Doi>()
 expectTypeOf(work.titles).toEqualTypeOf<ReadonlyNonEmptyArray<{ title: string }>>()
+expectTypeOf(work.types.resourceType).toEqualTypeOf<string | undefined>()
+expectTypeOf(work.types.resourceTypeGeneral).toEqualTypeOf<string | undefined>()
 
 //
 // getWork

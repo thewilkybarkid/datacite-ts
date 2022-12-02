@@ -86,4 +86,11 @@ export const dataciteWork = (): fc.Arbitrary<_.Work> =>
         title: fc.string(),
       }),
     ),
+    types: fc.record(
+      {
+        resourceType: fc.string(),
+        resourceTypeGeneral: fc.string(),
+      },
+      { withDeletedKeys: true },
+    ),
   })
