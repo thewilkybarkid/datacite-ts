@@ -39,7 +39,9 @@ Added in v0.1.0
 
 ```ts
 export interface Work {
+  readonly descriptions: ReadonlyArray<{ description: string; descriptionType: string }>
   readonly doi: Doi
+  readonly titles: ReadonlyNonEmptyArray<{ title: string }>
 }
 ```
 
