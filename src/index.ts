@@ -33,6 +33,7 @@ import ReaderTaskEither = RTE.ReaderTaskEither
  * @since 0.1.0
  */
 export interface Work {
+  readonly creators: ReadonlyArray<{ givenName?: string; familyName: string } | { name: string }>
   readonly dates: ReadonlyNonEmptyArray<{
     date: Instant | PartialDate
     dateType: string
@@ -140,6 +141,21 @@ const NumberFromStringC = C.make(
   { encode: String },
 )
 
+const OrganizationCreatorC = C.struct({ name: C.string })
+
+const PersonCreatorC = pipe(
+  C.struct({ familyName: C.string, nameType: C.literal('Personal') }),
+  C.intersect(
+    C.partial({
+      givenName: C.string,
+    }),
+  ),
+  C.imap(
+    ({ nameType, ...props }) => props,
+    creator => ({ ...creator, nameType: 'Personal' as const }),
+  ),
+)
+
 /**
  * @category codecs
  * @since 0.1.0
@@ -152,6 +168,14 @@ export const WorkC: Codec<string, string, Work> = pipe(
         C.struct({
           type: C.literal('dois'),
           attributes: C.struct({
+            creators: ReadonlyArrayC(
+              // Unfortunately, there's no way to describe a union encoder, so we must implement it ourselves.
+              // Refs https://github.com/gcanti/io-ts/issues/625#issuecomment-1007478009
+              C.make(D.union(PersonCreatorC, OrganizationCreatorC), {
+                encode: author =>
+                  'familyName' in author ? PersonCreatorC.encode(author) : OrganizationCreatorC.encode(author),
+              }),
+            ),
             dates: ReadonlyNonEmptyArrayC(
               C.struct({
                 date:

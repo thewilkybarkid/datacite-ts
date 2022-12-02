@@ -68,6 +68,20 @@ export const response = ({
 
 export const dataciteWork = (): fc.Arbitrary<_.Work> =>
   fc.record({
+    creators: fc.array(
+      fc.oneof(
+        fc.record(
+          {
+            familyName: fc.string(),
+            givenName: fc.string(),
+          },
+          { requiredKeys: ['familyName'] },
+        ),
+        fc.record({
+          name: fc.string(),
+        }),
+      ),
+    ),
     dates: nonEmptyArray(
       fc.record({
         date: fc.oneof(instant(), plainDate(), plainYearMonth(), year()),
