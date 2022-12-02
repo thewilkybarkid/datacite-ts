@@ -17,6 +17,7 @@ Added in v0.1.0
 - [constructors](#constructors)
   - [getWork](#getwork)
 - [model](#model)
+  - [PartialDate (type alias)](#partialdate-type-alias)
   - [Work (interface)](#work-interface)
 
 ---
@@ -47,12 +48,26 @@ Added in v0.1.0
 
 # model
 
+## PartialDate (type alias)
+
+**Signature**
+
+```ts
+export type PartialDate = number | PlainYearMonth | PlainDate
+```
+
+Added in v0.1.1
+
 ## Work (interface)
 
 **Signature**
 
 ```ts
 export interface Work {
+  readonly dates: ReadonlyNonEmptyArray<{
+    date: Instant | PartialDate
+    dateType: string
+  }>
   readonly descriptions: ReadonlyArray<{ description: string; descriptionType: string }>
   readonly doi: Doi
   readonly titles: ReadonlyNonEmptyArray<{ title: string }>
