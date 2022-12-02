@@ -1,0 +1,15 @@
+{
+  "name": "datacite-ts",
+  "description": "A DataCite API client for use with fp-ts.",
+  "version": "0.1.0",
+  "license": "MIT",
+  "repository": "github:thewilkybarkid/datacite-ts",
+  "devDependencies": {
+    "@commitlint/cli": "^17.3.0",
+    "@commitlint/config-conventional": "^17.3.0",
+    "husky": "^8.0.2"
+  },
+  "scripts": {
+    "prepare": "which husky && husky install || true"
+  }
+}
