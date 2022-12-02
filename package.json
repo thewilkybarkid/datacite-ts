@@ -10,10 +10,12 @@
   "types": "dist/index.d.ts",
   "sideEffects": false,
   "dependencies": {
+    "http-status-codes": "^2.2.0",
     "safe-stable-stringify": "^2.4.1"
   },
   "peerDependencies": {
     "doi-ts": "^0.1.2",
+    "fetch-fp-ts": "^0.1.3",
     "fp-ts": "^2.11.0",
     "io-ts": "^2.2.15"
   },
@@ -34,10 +36,13 @@
     "eslint-import-resolver-typescript": "^3.5.2",
     "eslint-plugin-import": "^2.26.0",
     "expect-type": "^0.15.0",
+    "fetch-fp-ts": "^0.1.5",
+    "fetch-mock": "^9.11.0",
     "fp-ts": "^2.13.1",
     "husky": "^8.0.2",
     "io-ts": "^2.2.19",
     "jest": "^29.3.1",
+    "node-fetch": "^2.6.7",
     "prettier": "^2.8.0",
     "prettier-plugin-sh": "^0.12.8",
     "ts-jest": "^29.0.3",
