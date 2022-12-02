@@ -76,6 +76,7 @@ export interface Work {
     resourceTypeGeneral?: string
   }
   readonly titles: ReadonlyNonEmptyArray<{ title: string }>
+  readonly url: URL
 }
 ```
 

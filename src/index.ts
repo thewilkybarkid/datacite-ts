@@ -45,6 +45,7 @@ export interface Work {
     resourceTypeGeneral?: string
   }
   readonly titles: ReadonlyNonEmptyArray<{ title: string }>
+  readonly url: URL
 }
 
 /**
@@ -141,6 +142,19 @@ const NumberFromStringC = C.make(
   { encode: String },
 )
 
+const UrlC = C.make(
+  pipe(
+    D.string,
+    D.parse(s =>
+      E.tryCatch(
+        () => new URL(s),
+        () => D.error(s, 'URL'),
+      ),
+    ),
+  ),
+  { encode: String },
+)
+
 const OrganizationCreatorC = C.struct({ name: C.string })
 
 const PersonCreatorC = pipe(
@@ -210,6 +224,7 @@ export const WorkC: Codec<string, string, Work> = pipe(
               resourceType: C.string,
               resourceTypeGeneral: C.string,
             }),
+            url: UrlC,
           }),
         }),
       ),

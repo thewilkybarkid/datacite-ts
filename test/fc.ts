@@ -39,6 +39,8 @@ export const error = (): fc.Arbitrary<Error> => fc.string().map(error => new Err
 
 export const statusCode = (): fc.Arbitrary<number> => fc.integer({ min: 200, max: 599 })
 
+export const url = (): fc.Arbitrary<URL> => fc.webUrl().map(url => new URL(url))
+
 export const doi = (): fc.Arbitrary<Doi> =>
   fc
     .tuple(
@@ -107,4 +109,5 @@ export const dataciteWork = (): fc.Arbitrary<_.Work> =>
       },
       { withDeletedKeys: true },
     ),
+    url: url(),
   })
