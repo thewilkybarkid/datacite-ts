@@ -41,6 +41,7 @@ export interface Work {
   readonly descriptions: ReadonlyArray<{ description: string; descriptionType: string }>
   readonly doi: Doi
   readonly identifiers: ReadonlyArray<{ identifier: string; identifierType: string }>
+  readonly publisher: string
   readonly types: {
     resourceType?: string
     resourceTypeGeneral?: string
@@ -222,6 +223,7 @@ export const WorkC: Codec<string, string, Work> = pipe(
                 identifierType: C.string,
               }),
             ),
+            publisher: C.string,
             titles: ReadonlyNonEmptyArrayC(
               C.struct({
                 title: C.string,

@@ -72,6 +72,7 @@ export interface Work {
   readonly descriptions: ReadonlyArray<{ description: string; descriptionType: string }>
   readonly doi: Doi
   readonly identifiers: ReadonlyArray<{ identifier: string; identifierType: string }>
+  readonly publisher: string
   readonly types: {
     resourceType?: string
     resourceTypeGeneral?: string

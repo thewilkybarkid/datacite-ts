@@ -103,6 +103,7 @@ export const dataciteWork = (): fc.Arbitrary<_.Work> =>
         identifierType: fc.string(),
       }),
     ),
+    publisher: fc.string(),
     titles: nonEmptyArray(
       fc.record({
         title: fc.string(),
