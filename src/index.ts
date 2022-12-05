@@ -40,6 +40,7 @@ export interface Work {
   }>
   readonly descriptions: ReadonlyArray<{ description: string; descriptionType: string }>
   readonly doi: Doi
+  readonly identifiers: ReadonlyArray<{ identifier: string; identifierType: string }>
   readonly types: {
     resourceType?: string
     resourceTypeGeneral?: string
@@ -215,6 +216,12 @@ export const WorkC: Codec<string, string, Work> = pipe(
               }),
             ),
             doi: DoiC,
+            identifiers: ReadonlyArrayC(
+              C.struct({
+                identifier: C.string,
+                identifierType: C.string,
+              }),
+            ),
             titles: ReadonlyNonEmptyArrayC(
               C.struct({
                 title: C.string,

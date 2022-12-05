@@ -97,6 +97,12 @@ export const dataciteWork = (): fc.Arbitrary<_.Work> =>
       }),
     ),
     doi: doi(),
+    identifiers: fc.array(
+      fc.record({
+        identifier: fc.string(),
+        identifierType: fc.string(),
+      }),
+    ),
     titles: nonEmptyArray(
       fc.record({
         title: fc.string(),

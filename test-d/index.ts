@@ -27,6 +27,7 @@ expectTypeOf(work.dates).toEqualTypeOf<
   ReadonlyNonEmptyArray<{ date: Instant | PlainDate | PlainYearMonth | number; dateType: string }>
 >()
 expectTypeOf(work.doi).toEqualTypeOf<Doi>()
+expectTypeOf(work.identifiers).toEqualTypeOf<ReadonlyArray<{ identifier: string; identifierType: string }>>()
 expectTypeOf(work.titles).toEqualTypeOf<ReadonlyNonEmptyArray<{ title: string }>>()
 expectTypeOf(work.types.resourceType).toEqualTypeOf<string | undefined>()
 expectTypeOf(work.types.resourceTypeGeneral).toEqualTypeOf<string | undefined>()
