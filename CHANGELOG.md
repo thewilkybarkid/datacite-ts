@@ -2,6 +2,14 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.1.2](https://github.com/thewilkybarkid/datacite-ts/compare/v0.1.1...v0.1.2) (2022-12-05)
+
+
+### Features
+
+* add identifiers to Work ([2cb29e8](https://github.com/thewilkybarkid/datacite-ts/commit/2cb29e8d8072f00f2af4b089c67915225fb0639e))
+* add publisher to Work ([94e3741](https://github.com/thewilkybarkid/datacite-ts/commit/94e37414b3a3e4f8a67f795bc0e85e20b6b02bbd))
+
 ### [0.1.1](https://github.com/thewilkybarkid/datacite-ts/compare/v0.1.0...v0.1.1) (2022-12-02)
 
 
