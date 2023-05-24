@@ -160,16 +160,14 @@ const UrlC = C.make(
 const OrganizationCreatorC = C.struct({ name: C.string })
 
 const PersonCreatorC = pipe(
-  C.struct({ familyName: C.string, nameType: C.literal('Personal') }),
+  C.struct({ familyName: C.string }),
   C.intersect(
     C.partial({
       givenName: C.string,
+      nameType: C.literal('Personal'),
     }),
   ),
-  C.imap(
-    ({ nameType, ...props }) => props,
-    creator => ({ ...creator, nameType: 'Personal' as const }),
-  ),
+  C.imap(({ nameType, ...props }) => props, identity),
 )
 
 /**
