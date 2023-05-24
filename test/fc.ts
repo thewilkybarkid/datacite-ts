@@ -76,8 +76,9 @@ export const dataciteWork = (): fc.Arbitrary<_.Work> =>
           {
             familyName: fc.string(),
             givenName: fc.string(),
+            nameIdentifiers: fc.array(fc.record({ nameIdentifier: fc.string(), nameIdentifierScheme: fc.string() })),
           },
-          { requiredKeys: ['familyName'] },
+          { requiredKeys: ['familyName', 'nameIdentifiers'] },
         ),
         fc.record({
           name: fc.string(),

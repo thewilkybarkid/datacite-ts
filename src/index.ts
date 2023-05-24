@@ -33,7 +33,14 @@ import ReaderTaskEither = RTE.ReaderTaskEither
  * @since 0.1.0
  */
 export interface Work {
-  readonly creators: ReadonlyArray<{ givenName?: string; familyName: string } | { name: string }>
+  readonly creators: ReadonlyArray<
+    | {
+        givenName?: string
+        familyName: string
+        nameIdentifiers: ReadonlyArray<{ nameIdentifier: string; nameIdentifierScheme: string }>
+      }
+    | { name: string }
+  >
   readonly dates: ReadonlyNonEmptyArray<{
     date: Instant | PartialDate
     dateType: string
@@ -165,9 +172,10 @@ const PersonCreatorC = pipe(
     C.partial({
       givenName: C.string,
       nameType: C.literal('Personal'),
+      nameIdentifiers: ReadonlyArrayC(C.struct({ nameIdentifier: C.string, nameIdentifierScheme: C.string })),
     }),
   ),
-  C.imap(({ nameType, ...props }) => props, identity),
+  C.imap(({ nameType, ...props }) => ({ nameIdentifiers: [], ...props }), identity),
 )
 
 /**

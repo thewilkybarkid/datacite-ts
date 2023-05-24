@@ -64,7 +64,14 @@ Added in v0.1.1
 
 ```ts
 export interface Work {
-  readonly creators: ReadonlyArray<{ givenName?: string; familyName: string } | { name: string }>
+  readonly creators: ReadonlyArray<
+    | {
+        givenName?: string
+        familyName: string
+        nameIdentifiers: ReadonlyArray<{ nameIdentifier: string; nameIdentifierScheme: string }>
+      }
+    | { name: string }
+  >
   readonly dates: ReadonlyNonEmptyArray<{
     date: Instant | PartialDate
     dateType: string
