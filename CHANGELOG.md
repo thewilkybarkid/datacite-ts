@@ -2,6 +2,18 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.1.3](https://github.com/thewilkybarkid/datacite-ts/compare/v0.1.2...v0.1.3) (2023-05-24)
+
+
+### Features
+
+* add name identifiers ([fdeb1c1](https://github.com/thewilkybarkid/datacite-ts/commit/fdeb1c1b45b606cf055ad09a4ba043f80eaa8d2e)), closes [/support.datacite.org/docs/schema-mandatory-properties-v43#24](https://github.com/thewilkybarkid//support.datacite.org/docs/schema-mandatory-properties-v43/issues/24)
+
+
+### Bug Fixes
+
+* support personal names without an explicit nameType ([f6c4ccf](https://github.com/thewilkybarkid/datacite-ts/commit/f6c4ccfa8b9561dca6397abdedc7a0779afdfc37))
+
 ### [0.1.2](https://github.com/thewilkybarkid/datacite-ts/compare/v0.1.1...v0.1.2) (2022-12-05)
 
 
