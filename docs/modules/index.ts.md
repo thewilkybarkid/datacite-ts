@@ -80,6 +80,12 @@ export interface Work {
   readonly doi: Doi
   readonly identifiers: ReadonlyArray<{ identifier: string; identifierType: string }>
   readonly publisher: string
+  readonly relatedIdentifiers: ReadonlyArray<{
+    relationType: string
+    relatedIdentifier: string
+    resourceTypeGeneral?: string
+    relatedIdentifierType: string
+  }>
   readonly types: {
     resourceType?: string
     resourceTypeGeneral?: string

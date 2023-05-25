@@ -105,6 +105,17 @@ export const dataciteWork = (): fc.Arbitrary<_.Work> =>
       }),
     ),
     publisher: fc.string(),
+    relatedIdentifiers: fc.array(
+      fc.record(
+        {
+          relationType: fc.string(),
+          relatedIdentifier: fc.string(),
+          resourceTypeGeneral: fc.string(),
+          relatedIdentifierType: fc.string(),
+        },
+        { requiredKeys: ['relationType', 'relatedIdentifier', 'relatedIdentifierType'] },
+      ),
+    ),
     titles: nonEmptyArray(
       fc.record({
         title: fc.string(),

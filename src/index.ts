@@ -49,6 +49,12 @@ export interface Work {
   readonly doi: Doi
   readonly identifiers: ReadonlyArray<{ identifier: string; identifierType: string }>
   readonly publisher: string
+  readonly relatedIdentifiers: ReadonlyArray<{
+    relationType: string
+    relatedIdentifier: string
+    resourceTypeGeneral?: string
+    relatedIdentifierType: string
+  }>
   readonly types: {
     resourceType?: string
     resourceTypeGeneral?: string
@@ -230,6 +236,20 @@ export const WorkC: Codec<string, string, Work> = pipe(
               }),
             ),
             publisher: C.string,
+            relatedIdentifiers: ReadonlyArrayC(
+              pipe(
+                C.struct({
+                  relationType: C.string,
+                  relatedIdentifier: C.string,
+                  relatedIdentifierType: C.string,
+                }),
+                C.intersect(
+                  C.partial({
+                    resourceTypeGeneral: C.string,
+                  }),
+                ),
+              ),
+            ),
             titles: ReadonlyNonEmptyArrayC(
               C.struct({
                 title: C.string,
