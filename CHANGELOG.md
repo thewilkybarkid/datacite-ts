@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.1.4](https://github.com/thewilkybarkid/datacite-ts/compare/v0.1.3...v0.1.4) (2023-05-25)
+
+
+### Features
+
+* add related identifiers ([0e0e999](https://github.com/thewilkybarkid/datacite-ts/commit/0e0e999dcfe14a2711ae1e893fb2aab1a406c864))
+
 ### [0.1.3](https://github.com/thewilkybarkid/datacite-ts/compare/v0.1.2...v0.1.3) (2023-05-24)
 
 
