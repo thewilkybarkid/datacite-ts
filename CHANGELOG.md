@@ -2,6 +2,14 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.1.5](https://github.com/thewilkybarkid/datacite-ts/compare/v0.1.4...v0.1.5) (2025-03-31)
+
+
+### Features
+
+* improve compatibility by treating Temporal as a peer dependency ([e6c6afd](https://github.com/thewilkybarkid/datacite-ts/commit/e6c6afd37af9e31c14325f58d224c243a420798d))
+* support Temporal polyfill 0.5 ([e84f941](https://github.com/thewilkybarkid/datacite-ts/commit/e84f9411e6ee51029a7e2b064695761da6294925))
+
 ### [0.1.4](https://github.com/thewilkybarkid/datacite-ts/compare/v0.1.3...v0.1.4) (2023-05-25)
 
 
